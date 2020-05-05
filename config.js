@@ -1,4 +1,5 @@
 module.exports = {
     port: 8080,
-    engine: ".hbs"
+    engine: ".hbs",
+    limit: 10
 }

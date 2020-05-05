@@ -1,1 +1,7 @@
-<h1>Hello {{ name }}!</h1>
+{{#each articles}}
+    <a class="article" href="/articles/{{ id }}">
+        <img src="{{ img }}" alt="Article img" class="article__img">
+        <h2 class="article__title article__title_small">{{ title }}</h2>
+        <p class="article__description">{{ description }}</p>
+    </a>
+{{/each}}
