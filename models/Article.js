@@ -35,17 +35,20 @@ module.exports = class Article {
             })
         )
     }
-    static async find({ limit, id }) {
+    static async find(id) {
         const fullData = await this.$getParsedData();
         //Find articles
-        const result = id ? fullData.find(article => article.id === id) : fullData;
+        return fullData.find(article => article.id === id);
+    }
+    static async getAll(limit) {
+        const result = await this.$getParsedData();
         //Handle limit
         (limit && result.length > limit) && (result.length = limit);
         return result;
     }
-    static async add({ title, description, img, text }) {
+    static async add({ title, description, img, text, author }) {
         return await this.$saveData({
-            title, description, img, text, id: Date.now()
+            title, description, img, text, author, id: Date.now()
         })
     }
 }

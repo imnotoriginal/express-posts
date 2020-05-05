@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ headDescription }}">
     <title>{{ headTitle }}</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
 </head>
-<body>
+<body style="padding-top: 56px;">
+    {{> nav}}
     <div class="container">
         {{{ body }}}
     </div>
 </body>
+<script src="/jQuery.min.js"></script>
+<script src="/bootstrap.min.js"></script>
 </html>

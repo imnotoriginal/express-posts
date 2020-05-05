@@ -1,7 +1,9 @@
 {{#each articles}}
-    <a class="article" href="/articles/{{ id }}">
-        <img src="{{ img }}" alt="Article img" class="article__img">
-        <h2 class="article__title article__title_small">{{ title }}</h2>
-        <p class="article__description">{{ description }}</p>
-    </a>
+    <div class="card my-4">
+        <h5 class="card-header">{{ title }}</h5>
+          <div class="card-body">
+            <p class="card-text">{{ description }}</p>
+            <a href="/article/{{ id }}"> See more...</a>
+        </div>
+    </div>
 {{/each}}
