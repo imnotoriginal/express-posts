@@ -8,9 +8,7 @@ router.get('/add-post', (req, res) => {
 
 router.post('/add-post', (req, res) => {
     const { title, description, author, text } = req.body;
-    Post.add({
-        title, description, author, text: markdown.render(text)
-    })
+    new Post({ title, description, author, text: markdown.render(text) }).save();
     res.redirect('/');
 })
 
