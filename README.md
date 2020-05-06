@@ -8,7 +8,9 @@ This project is my vaiant of hack-news or similar websites.
 * Mustache
 * Express
 * MongoDb (mongoose)
+* Bootstrap
 
 ## Others
   * dotenv package
   * markdown-it package
+  * jQuery
