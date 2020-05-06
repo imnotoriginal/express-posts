@@ -46,9 +46,12 @@ module.exports = class Article {
         (limit && result.length > limit) && (result.length = limit);
         return result;
     }
-    static async add({ title, description, img, text, author }) {
+    static async add({ title, description, text, author }) {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth();
         return await this.$saveData({
-            title, description, img, text, author, id: Date.now()
+            title, description, text, author, time: `${day < 10 ? '0'+day : day}.${month < 10 ? '0'+month : month}.${date.getFullYear()}`, id: Date.now()
         })
     }
 }

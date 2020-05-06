@@ -1,5 +1,6 @@
 const express = require('express');
 const expHbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const config = require('./config');
 const routes = require("./controllers");
 const app = express();
@@ -11,8 +12,9 @@ app.set('view engine', config.engine);
 //Apply static folder
 app.use(express.static('static'));
 
-//Apply routes
+//Apply middleware & routes
+app.use(bodyParser.urlencoded({ extended: true}));
 routes.forEach(route => app.use(route));
 
 //Start server
-app.listen(config.port, () => console.log(`Server is tunning on http://localhost:${config.port}`));
+app.listen(config.port, () => console.log(`Server is running on http://localhost:${config.port}`));
