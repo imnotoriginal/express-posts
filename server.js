@@ -1,9 +1,17 @@
 const express = require('express');
 const expHbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const secret = require('./mongodb.secret');
 const config = require('./config');
 const routes = require("./controllers");
 const app = express();
+
+//connect mongoDB
+mongoose.connect(
+    `mongodb+srv://${secret.user}:${secret.password}@cluster0-2np1w.mongodb.net/test?retryWrites=true&w=majority`,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 //Set hbs engine
 app.engine(config.engine, expHbs({ extname: config.engine }));
