@@ -1,7 +1,5 @@
-const express = require('express');
+const router = require('express').Router();
 const Post = require('../models/Post');
-
-const router = express.Router();
 
 router.get('/post/:id', async (req, res) => {
     const post = await Post.find(parseInt(req.params.id));

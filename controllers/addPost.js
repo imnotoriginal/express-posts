@@ -1,8 +1,6 @@
-const express = require('express');
+const router = require('express').Router();
 const markdown = require('markdown-it')();
 const Post = require('../models/Post');
-
-const router = express.Router();
 
 router.get('/add-post', (req, res) => {
     res.render('addPost', { activePageAddPost: true });
