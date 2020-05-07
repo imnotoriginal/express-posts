@@ -6,7 +6,7 @@ const _async = async (next, query) => {
     }
 }
 
-const _sync = (query, next) => {
+const _sync = (next, query) => {
     try {
         return query();
     } catch (e) {
