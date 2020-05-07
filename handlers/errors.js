@@ -1,19 +1,18 @@
 module.exports = (err, req, res, next) => {
-    res.status(404);
-    console.log("Error: ", err);
+    console.log("Error occured:", err);
+    const errorMessage = err.message || "Internal server error",
+        errorStatus = err.status || 500;
 
+    res.status(errorStatus);
     if (req.accepts('html')) {
-        res.render('error', {
-            errorMessage: "Internal server error",
-            errorStatus: 404
-        });
+        res.render('error', { errorMessage, errorStatus });
         return;
     }
 
     if (req.accepts('json')) {
-        res.send({ error: 'Internal server error' });
+        res.send({ error: errorMessage, status: errorStatus });
         return;
     }
 
-    res.type('txt').send('Internal server error');
+    res.type('txt').send(errorMessage);
 }
