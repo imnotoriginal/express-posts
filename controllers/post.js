@@ -1,13 +1,10 @@
-const router = require('express').Router();
-const Post = require('../models/Post');
+const router = require('express').Router(),
+    Post = require('../models/Post'),
+    safeQuery = require('../utils/safeQuery');
 
 router.get('/post/:id', async (req, res, next) => {
     const { id } = req.params;
-    try {
-        var post = await Post.findById(id).lean();
-    } catch (e) {
-        next(e);
-    }
+    const post = await safeQuery.async(next, async () => await Post.findById(id).lean());
 
     res.render('post', {
         headTitle: post.title,
