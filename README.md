@@ -1,6 +1,6 @@
 # Info
 
-This project is my vaiant of hack-news or similar websites.
+This project is my variant of hack-news or similar websites.
 
 # Technologies used in this project
 
