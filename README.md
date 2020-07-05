@@ -1,8 +1,8 @@
-# Info
+# Express-posts
 
-This project is my variant of hack-news or similar websites.
+Simple blog based on express & mongodb
 
-# Technologies used in this project
+## Technologies used in this project
 
 * Node.js
 * Mustache
